@@ -11,7 +11,7 @@ bool InputFile::Read(std::string filename)
 
 	std::ifstream readFile;
 	readFile.open(filename);
-	
+
 	if (readFile.fail())
 	{
 		x = false;
