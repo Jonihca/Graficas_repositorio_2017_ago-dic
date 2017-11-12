@@ -39,6 +39,9 @@
     <ClCompile Include="InputFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -59,6 +62,9 @@
     <ClInclude Include="Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Default.frag">
@@ -67,5 +73,34 @@
     <None Include="Default.vert">
       <Filter>Source Files\Shaders</Filter>
     </None>
+    <None Include="Phong.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Phong.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="TextureMapping.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="TextureMapping.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="TextureMapping2.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="TextureMapping2.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="CAJA.jpg">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="PISO.jpg">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="KATAMARI.png">
+      <Filter>Source Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
