@@ -42,6 +42,9 @@
     <ClCompile Include="Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dephtbuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Texture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dephtbuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,6 +95,18 @@
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="TextureMapping2.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Shadow.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Shadow.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Depth.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Depth.vert">
       <Filter>Source Files\Shaders</Filter>
     </None>
   </ItemGroup>
