@@ -109,6 +109,12 @@
     <None Include="Depth.vert">
       <Filter>Source Files\Shaders</Filter>
     </None>
+    <None Include="Shadow2.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Shadow2.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="CAJA.jpg">

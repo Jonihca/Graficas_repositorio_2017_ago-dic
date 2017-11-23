@@ -151,6 +151,8 @@
     <None Include="Phong.vert" />
     <None Include="Shadow.frag" />
     <None Include="Shadow.vert" />
+    <None Include="Shadow2.frag" />
+    <None Include="Shadow2.vert" />
     <None Include="TextureMapping.frag" />
     <None Include="TextureMapping.vert" />
     <None Include="TextureMapping2.frag" />
