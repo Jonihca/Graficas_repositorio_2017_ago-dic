@@ -510,7 +510,7 @@ void Initialize()
 
 	//NORMAL
 	_shaderProgram.CreateProgram();
-	
+
 	_shaderProgram.AttachShader("Shadow.vert", GL_VERTEX_SHADER);
 	_shaderProgram.AttachShader("Shadow.frag", GL_FRAGMENT_SHADER);
 	_shaderProgram.SetAttribute(0, "VertexPosition");
@@ -519,7 +519,7 @@ void Initialize()
 	_shaderProgram.SetAttribute(3, "VertexTexCoord");
 
 	_shaderProgram.LinkProgram();
-	
+
 
 	_shaderProgram.Activate();
 	_shaderProgram.SetUniformf("LightColor", glm::vec3(1.0f, 1.0f, 1.0f));
