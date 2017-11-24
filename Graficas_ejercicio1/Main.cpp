@@ -498,9 +498,9 @@ void Initialize()
 
 
 	_depth.Create(2048);
-	_lightC.SetPosition(-3.0f, 5.0f, 0.0f);
+	_lightC.SetPosition(-2.0f, 5.0f, 0.0f);
 	_lightC.SetRotation(-60.0f, 0.0f, 0.0f);
-	_lightC.SetOrthographic(20.0f, 1.0f);
+	_lightC.SetOrthographic(60.0f, 1.0f);
 
 	_shaderDepth.CreateProgram();
 	_shaderDepth.AttachShader("Depth.vert", GL_VERTEX_SHADER);
@@ -556,52 +556,52 @@ void Initialize()
 	_texture3.LoadTexture("PISO.jpg");
 
 	//dedoindice1joint
-	_dedoindice1joint.SetPosition(3.5f, 0.0f, 1.5f);
+	_dedoindice1joint.SetPosition(3.0f, 0.0f, 1.4f);
 
 	//dedoindice
-	_dedoindice1.SetPosition(0.5f, 0.0f, 0.0f);
+	_dedoindice1.SetPosition(0.9f, 0.0f, 0.0f);
 
 	//dedoindice2joint
-	_dedoindice2joint.SetPosition(1.0f, 0.0f, 0.0f);
+	_dedoindice2joint.SetPosition(0.7f, 0.0f, 0.0f);
 
 	//dedoindice2
-	_dedoindice2.SetPosition(0.5f, 0.0f, 0.0f);
+	_dedoindice2.SetPosition(1.0f, 0.0f, 0.0f);
 
 	//dedomediojoint
-	_dedomedio1joint.SetPosition(4.0f, 0.0f, 0.0f);
+	_dedomedio1joint.SetPosition(3.0f, 0.0f, 0.0f);
 
 	//dedomedio
-	_dedomedio1.SetPosition(4.0f, 0.0f, 0.0f);
+	_dedomedio1.SetPosition(0.9f, 0.0f, 0.0f);
 
 	//dedomedio2joint
-	_dedomedio2joint.SetPosition(1.5f, 0.0f, 0.0f);
+	_dedomedio2joint.SetPosition(0.7f, 0.0f, 0.0f);
 
 //dedomedio2
-	_dedomedio2.SetPosition(1.5f, 0.0f, 0.0f);
+	_dedomedio2.SetPosition(1.0f, 0.0f, 0.0f);
 
 	//dedoanularjoint
-	_dedoanular1joint.SetPosition(4.0f, 0.0f, -1.5f);
+	_dedoanular1joint.SetPosition(3.0f, 0.0f, -1.4f);
 
 	//dedoanular
-	_dedoanular1.SetPosition(4.0f, 0.0f, -1.5f);
+	_dedoanular1.SetPosition(0.9f, 0.0f, 0.0f);
 
 	//dedoanular2joint
-	_dedoanular2joint.SetPosition(1.5f, 0.0f, 0.0f);
+	_dedoanular2joint.SetPosition(0.7f, 0.0f, 0.0f);
 
 //dedoanular2
-	_dedoanular2.SetPosition(1.5f, 0.0f, 0.0f);
+	_dedoanular2.SetPosition(1.0f, 0.0f, 0.0f);
 
 	//dedopulgarjoint
-	_dedopulgar1joint.SetPosition(-2.5f, 0.0f, 3.0f);
+	_dedopulgar1joint.SetPosition(-2.2f, 0.0f, 2.0f);
 
 //dedopulgar
-	_dedopulgar1.SetPosition(-2.5f, 0.0f, 3.0f);
+	_dedopulgar1.SetPosition(0.0f, 0.0f, 0.6f);
 
 	//dedopulgar2joint
-	_dedopulgar2joint.SetPosition(0.0f, 0.0f, 1.5f);
+	_dedopulgar2joint.SetPosition(0.0f, 0.0f, 0.6f);
 
 //dedopulgar2
-	_dedopulgar2.SetPosition(0.0f, 0.0f, 1.5f);
+	_dedopulgar2.SetPosition(0.0f, 0.0f, 1.0f);
 
 //piso
 	_piso.SetPosition(0.0f, -12.0f, 0.0f);
@@ -620,36 +620,51 @@ void GameLoop()
 
 
 	_camera.SetPosition(0.0f, 0.0f, 25.0f);
-	_palma1.Rotate(0.02f, 0.02f, 0.02f, true);
+	_palma1.Rotate(0.0f, 0.2f, 0.0f, true);
 
-	_dedoindice1joint.Rotate(0.0f, 0.0f, 1.0f,true);
+	//_dedoindice1joint.Rotate(0.0f, 0.0f, 1.0f,true);
 
 
 	/*_transform.Rotate(0.04f, 0.04f, 0.04f, true);
 	*/
-	/*
+	
 	float rotacion = 0.5f + ii;
 	
 		
-		if (rotacion <= 1.0f & limite == true)
+		if (rotacion <= 80.0f && limite == true)
 		 {
-		_transform1.SetScale(size, size, size);
-		ii = ii + 0.005f;
+			_dedoindice1joint.SetRotation(0.0f, 0.0f,rotacion);
+			_dedomedio1joint.SetRotation(0.0f, 0.0f, rotacion);
+			_dedoanular1joint.SetRotation(0.0f, 0.0f, rotacion);
+			_dedopulgar1joint.SetRotation(-rotacion, 0.0f, 0.0f);
+			_dedoindice2joint.SetRotation(0.0f, 0.0f, rotacion);
+			_dedomedio2joint.SetRotation(0.0f, 0.0f, rotacion);
+			_dedoanular2joint.SetRotation(0.0f, 0.0f, rotacion);
+			_dedopulgar2joint.SetRotation(-rotacion, 0.0f, 0.0f);
+
+		ii = ii + 0.5f;
 		}
-	else if (rotacion >= 1.0f & limite == true)
+	else if (rotacion >= 80.0f && limite == true)
 		 {
 		limite = false;
 		}
-	else if (size >= 0.25f & limite == false)
+	else if (rotacion >= 0.25f && limite == false)
 		 {
-		_transform1.SetScale(size, size, size);
-		ii = ii - 0.005f;
+		_dedoindice1joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedomedio1joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedoanular1joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedopulgar1joint.SetRotation(-rotacion, 0.0f, 0.0f);
+		_dedoindice2joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedomedio2joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedoanular2joint.SetRotation(0.0f, 0.0f, rotacion);
+		_dedopulgar2joint.SetRotation(-rotacion, 0.0f, 0.0f);
+		ii = ii - 0.5f;
 		}
-	else if (size <= 0.25f & limite == false)
+	else if (rotacion <= 0.25f && limite == false)
 		{
 		limite = true;
 		}
-		*/
+		
 
 	
 
@@ -669,28 +684,28 @@ void GameLoop()
 
 
 	//dedomedio
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 
 
 	//dedomedio2
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2joint.GetModelMatrix()*_dedomedio2.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 	
 	//dedoanular
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 
 	//dedoanular2
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2joint.GetModelMatrix()*_dedoanular2.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 
 	//dedopulgar
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 
 	//dedopulgar2
-	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2.GetModelMatrix()));
+	_shaderDepth.SetUniformMatrix("mvpMatrix", _lightC.GetViewProjection()* (_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2joint.GetModelMatrix()*_dedopulgar2.GetModelMatrix()));
 	_falanges.Draw(GL_TRIANGLES);
 
 	//Piso
@@ -777,11 +792,11 @@ void GameLoop()
 	//dedomedio1
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
@@ -808,11 +823,11 @@ void GameLoop()
 	//dedomedio2
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2joint.GetModelMatrix()*_dedomedio2.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2joint.GetModelMatrix()*_dedomedio2.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedomedio1joint.GetModelMatrix()*_dedomedio1.GetModelMatrix()*_dedomedio2joint.GetModelMatrix()*_dedomedio2.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
@@ -839,11 +854,11 @@ void GameLoop()
 	//dedoanular1
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
@@ -870,11 +885,11 @@ void GameLoop()
 	//anular2
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2joint.GetModelMatrix()*_dedoanular2.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2joint.GetModelMatrix()*_dedoanular2.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedoanular1joint.GetModelMatrix()*_dedoanular1.GetModelMatrix()*_dedoanular2joint.GetModelMatrix()*_dedoanular2.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
@@ -901,11 +916,11 @@ void GameLoop()
 	//dedopulgar1
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
@@ -932,11 +947,11 @@ void GameLoop()
 	//pulgar2
 	_shaderProgram2.Activate();
 
-	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2.GetModelMatrix()))));
-	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2.GetModelMatrix()));
+	_shaderProgram2.SetUniformMatrix("normalMatrix", glm::transpose(glm::inverse(glm::mat3(_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2joint.GetModelMatrix()*_dedopulgar2.GetModelMatrix()))));
+	_shaderProgram2.SetUniformMatrix("mvpMatrix", _camera.GetViewProjection()*(_palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2joint.GetModelMatrix()*_dedopulgar2.GetModelMatrix()));
 	
 	_shaderProgram2.SetUniformf("cameraPosition", _camera.GetPosition());
-	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2.GetModelMatrix());
+	_shaderProgram2.SetUniformMatrix("ModelMatrix", _palma1.GetModelMatrix()*_dedopulgar1joint.GetModelMatrix()*_dedopulgar1.GetModelMatrix()*_dedopulgar2joint.GetModelMatrix()*_dedopulgar2.GetModelMatrix());
 	_shaderProgram2.SetUniformMatrix("LightVPMatrix", _lightC.GetViewProjection());
 
 	glActiveTexture(GL_TEXTURE0);
